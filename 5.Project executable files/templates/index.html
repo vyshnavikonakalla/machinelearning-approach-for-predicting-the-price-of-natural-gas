@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Natural Gas Price Prediction</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>Natural Gas Price Prediction</h1>
+            <form action="/predict" method="post">
+                <div class="input-group">
+                    <label for="year">Year:</label>
+                    <input type="text" name="year" required>
+                </div>
+                <div class="input-group">
+                    <label for="month">Month:</label>
+                    <input type="text" name="month" required>
+                </div>
+                <div class="input-group">
+                    <label for="day">Day:</label>
+                    <input type="text" name="day" required>
+                </div>
+                <button type="submit">Predict</button>
+            </form>
+            {% if prediction_text %}
+                <div class="result">
+                    <h2>{{ prediction_text }}</h2>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
